@@ -56,14 +56,26 @@ function playRound(playerSelection, computerSelection) {
         }
     }
 
-    function game() {
+    function game(){ 
+        for (i = 0; i < 5; i++) {
         const computerSelection = computerPlay();
         let playerSelection = prompt('Rock, Paper, or Scissors?');
         playerSelection = playerSelection.toLowerCase();
         playRound(playerSelection, computerSelection);
-        console.log(playerScore, computerScore);
+        console.log('You:', playerScore, computerScore, ':Bot');
+        }
+        if (i = 5 && playerScore != computerScore) {
+            gameResult(playerScore, computerScore)
+        }
     }
 
+    function gameResult(playerScore, computerScore) {
+        if (playerScore > computerScore) {
+            console.log('You won! Congrats!');
+        } else if (computerScore > playerScore) {
+            console.log('You lost! :/ Try again!')
+        }
+    }
 </script>
 
 </body>
