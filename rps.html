@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+  <title>Rock, Paper, Scissors</title>
+  <style>
+    input {
+      font-size: 2em;
+      margin: 10px 1px 0;
+    }
+  </style>
+</head>
+<body>
+
+<script>
+ 
+ let playerScore = (0)
+ let computerScore = (0)
+
+function computerPlay() {
+    const throws = [ 'rock', 'paper', 'scissors']
+    return throws[Math.floor(Math.random() * throws.length)]
+}
+
+
+function playRound(playerSelection, computerSelection) {
+    if (playerSelection == computerSelection) {
+        alert('It\'s a draw!');
+        } 
+        else if (playerSelection == 'scissors' && computerSelection == 'rock'){
+            computerScore++
+            alert('Scissors beats rock! You lose.');
+        }
+        else if (playerSelection == 'scissors' && computerSelection == 'paper'){
+            playerScore++
+            alert('Scissors beats paper! You win!');
+        } 
+        else if (playerSelection == 'rock' && computerSelection == 'paper'){
+            computerScore++
+            alert('Paper beats rock! You lose');
+        }
+        else if (playerSelection == 'rock' && computerSelection == 'scissors') {
+            playerScore++
+            alert('Rock beats scissors! You win!');
+        } 
+        else if (playerSelection == 'paper' && computerSelection == 'scissors') {
+            computerScore++
+            alert('Scissors beats paper! You lose.');
+        } 
+        else if (playerSelection == 'paper' && computerSelection == 'rock') {
+            playerScore++
+            alert('Paper beats rock! You win!');
+        } 
+        else {
+            alert('Something went wrong.');
+        }
+    }
+
+    function game() {
+        const computerSelection = computerPlay();
+        let playerSelection = prompt('Rock, Paper, or Scissors?');
+        playerSelection = playerSelection.toLowerCase();
+        playRound(playerSelection, computerSelection);
+        console.log(playerScore, computerScore);
+    }
+
+</script>
+
+</body>
+</html>
